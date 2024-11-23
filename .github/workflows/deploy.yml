@@ -1,0 +1,33 @@
+name: Deploy HTML Page
+
+on:
+  push:
+    branches:
+      - main # O workflow será executado quando houver push na branch "main"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Passo 1: Fazer checkout do repositório
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Passo 2: Instalar rsync (geralmente já está no ambiente)
+      - name: Install rsync
+        run: sudo apt-get install -y rsync
+
+      # Passo 3: Fazer deploy para o servidor
+      - name: Deploy to Server
+        env:
+          DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }} # Chave privada SSH adicionada aos secrets
+          USER: ${{ secrets.USER_SERVER }} # Usuário do servidor
+          HOST: ${{ secrets.HOST_SERVER }} # Endereço do servidor
+        run: |
+          mkdir -p ~/.ssh
+          echo "$DEPLOY_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          rsync -avz --delete \
+            -e "ssh -o StrictHostKeyChecking=no" \
+            ./ $USER@$HOST:/var/www/anthonyguerra
