@@ -1,0 +1,218 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    background-color: #0d1117;
+    /* Fundo escuro elegante */
+}
+
+/* Header */
+header {
+    background-color: #1c1c1e;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .logo h1 {
+    font-size: 2rem;
+    margin: 0;
+    color: #00bcd4;
+    /* Destaque com azul claro */
+}
+
+/* Main Content */
+main {
+    padding: 2rem;
+}
+
+/* Card Group */
+.card-group {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    /* Adapta os cards para telas menores */
+}
+
+/* Cards */
+.card {
+    background-color: #1c1c1e;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Title */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #00bcd4;
+    /* Destaque */
+}
+
+/* Card Content */
+.card-content {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+/* Card Button */
+.card-button {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    background-color: #008cba;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    text-decoration: none;
+    /* Remove sublinhado */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card-button:hover {
+    background-color: #e63946;
+    /* Destaque no hover */
+    transform: scale(1.05);
+    /* Efeito de zoom */
+}
+
+.logo:hover {
+    animation: scale-and-glow 1s ease infinite;
+    /* Loop infinito para brilho contínuo */
+}
+
+header:hover {
+    background-color: #1e1e20;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Keyframes atualizados para o logo */
+@keyframes scale-and-glow {
+    0% {
+        transform: scale(1);
+        text-shadow: 0 0 5px #00bcd4, 0 0 10px #008cba;
+    }
+
+    50% {
+        transform: scale(1.1);
+        text-shadow: 0 0 15px #00bcd4, 0 0 30px #008cba;
+    }
+
+    100% {
+        transform: scale(1);
+        text-shadow: 0 0 5px #00bcd4, 0 0 10px #008cba;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .card-button {
+        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
+    }
+}
+
+/* Modal */
+.modal {
+    display: none;
+    /* Oculto por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Fundo escuro com opacidade */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #1c1c1e;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #ffffff;
+}
+
+.modal-title {
+    font-size: 1.8rem;
+    color: #00bcd4;
+    margin-bottom: 1rem;
+}
+
+.modal-body {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: #ffffff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: #e63946;
+    /* Cor de destaque no hover */
+}
+
+.modal-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #00bcd4;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: color 0.3s ease;
+}
+
+.modal-link:hover {
+    color: #e63946;
+}
+
+.modal-link-icon {
+    font-size: 1.5rem;
+}
